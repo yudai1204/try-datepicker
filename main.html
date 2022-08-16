@@ -564,6 +564,9 @@
         input[type="time"]{
             width:20vw;
         }*/
+        input[type=text] {
+            font-size: 16px;
+        }
         #ui-datepicker-div{
             opacity: 1 !important;
         }
@@ -572,11 +575,14 @@
 </head>
 
 <body>
-    <input id="date-1" type="text" placeholder="日付選択" class="datepic">
-    <input type="time" id="time-1">
-    
-    <input id="date-2" type="text" placeholder="日付選択" class="datepic">
-    <input type="time" id="time-2">
+    <div>
+        <input id="date-1" type="text" placeholder="日付選択" class="datepic">
+        <input type="time" id="time-1">
+    </div>
+    <div>
+        <input id="date-2" type="text" placeholder="日付選択" class="datepic">
+        <input type="time" id="time-2">
+    </div>
     <script>
         $('#mdp-demo').multiDatesPicker({
             dateFormat: "y-m-d",
