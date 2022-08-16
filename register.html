@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>トライ レイクタウン校</title>
+    <style type="text/css">
+        .mainBody{
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+        }
+        .mainBody > div{
+            margin: 10px;
+        }
+        .input-title{
+            display: inline-block;
+            width: 100px;
+        }
+        input,select,textarea{
+            width:200px;
+            height:30px
+        }
+        textarea{
+            height:100px
+        }
+        button{
+            width: 50%;
+            height: 30px;
+        }
+        .input-area > div{
+            margin:5px;
+        }
+        .input-area{
+            border: 1px solid #ccc;
+            padding:10px 0;
+        }
+        #login{
+            margin: 15px 0;
+        }
+        h1,h2{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainBody">
+        <h1>トライ レイクタウン校</h1>
+        <h2>新規講師登録</h2>
+        <form action="<?= getAppUrl() ?>" method="post">
+            <div class="input-area">
+                    <span class="input-title">ID:</span><input id="teacherId" name="teacherId" type="text" placeholder="ID" required>
+            </div>
+            <div class="input-area">
+                <span class="input-title">パスワード:</span><input id="teacherPass" name="teacherPass" type="password" placeholder="PASSWORD" required>
+                <span class="input-title">確認:</span><input id="teacherPass2" name="teacherPass2" type="password" placeholder="PASSWORD" required>
+                <div id="passAlertArea"></div>
+            </div>
+            <div class="input-area">
+                <span class="input-title">姓:</span><input id="teacherName1" name="teacherName1" type="text" placeholder="渡来" required>
+                <span class="input-title">名:</span><input id="teacherName2" name="teacherName2" type="text" placeholder="太郎" required>
+            </div>
+            <div class="input-area">
+                <span class="input-title">性別:</span><select id="teacherSex" name="teacherSex" required>
+                    <option value="男">男性</option>
+                    <option value="女">女性</option>
+                    <option value="その他">その他</option>
+                </select>
+            </div>
+            <div class="input-area">
+                <span class="input-title">学年:</span><select id="teacherYear" name="teacherYear" required>
+                    
+                </select>
+            </div>
+            <div class="input-area">
+                <span class="input-title">指導可能科目(任意):</span>
+                <textarea id="teacherAble" name="teacherAble"></textarea>
+            </div>
+            <div class="input-area">
+                <span class="input-title">備考(任意):</span>
+                <textarea id="teacherElse" name="teacherElse"></textarea>
+            </div>
+            <input type="hidden" name="mode" id="mode" value="register">
+            <button type="submit">新規登録</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        let year = ((new Date().getMonth() < 3)?3:4)+new Date().getFullYear();
+        for(let grade = 1; grade < 5; grade++) {
+        document.getElementById("teacherYear").insertAdjacentHTML("beforeend",`
+            <option value="${year}">学部${grade}年(${year}年3月卒業予定)</option>
+            `);
+            year--;
+        }
+        document.getElementById("teacherYear").insertAdjacentHTML("beforeend",`
+            <option value="else">その他</option>
+            `);
+        document.getElementById("teacherPass2").addEventListener("change",function(){
+            if(document.getElementById("teacherPass").value !== document.getElementById("teacherPass2").value){
+                document.getElementById("passAlertArea").innerHTML =`<span style="color:red;margin:0;padding:0;font-size:80%;">パスワードが一致しません`;
+            }else{
+                document.getElementById("passAlertArea").innerHTML ="";
+            }
+        });
+        document.getElementById("teacherPass").addEventListener("change",function(){
+            if(document.getElementById("teacherPass2").value!=="" && document.getElementById("teacherPass").value !== document.getElementById("teacherPass2").value){
+                document.getElementById("passAlertArea").innerHTML =`<span style="color:red;margin:0;padding:0;font-size:80%;">パスワードが一致しません`;
+            }else{
+                document.getElementById("passAlertArea").innerHTML ="";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>トライ レイクタウン校</title>
+    <style type="text/css">
+        .mainBody{
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+        }
+        .mainBody > div{
+            margin: 10px;
+        }
+        .input-title{
+            display: inline-block;
+            width: 80px;
+        }
+        input{
+            width:200px;
+            height:30px
+        }
+        button{
+            width: 50%;
+            height: 30px;
+        }
+        .input-area > div{
+            margin:5px;
+        }
+        .input-area{
+            border: 1px solid #ccc;
+        }
+        #login{
+            margin: 15px 0;
+        }
+        h1{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainBody">
+        <h1>トライ レイクタウン校</h1>
+        <div class="input-area">
+            <div>
+                <span class="input-title">ID:</span><input id="teacherId" type="text" placeholder="ID">
+            </div>
+            <div>
+                <span class="input-title">PASS:</span><input id="teacherPass" type="password" placeholder="PASS">
+            </div>
+            <button id="login">ログイン</button>
+        </div>
+        <div style="margin-top: 15px">
+            初めての方は<a href="javascript:void(0);">新規登録</a>
+        </div>
+    </div>
+</body>
+
+</html>
