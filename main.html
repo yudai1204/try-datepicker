@@ -554,34 +554,35 @@
         .ui-datepicker-calendar .day-holiday>a {
             background: #ffc0c0;
         }
-        /*
-        input[type="text"],input[type="time"]{
-            margin-top: 5px;
-            border: 2px solid #000;
-            height:10vw;
-            width:40vw;
+        input[type="text"]{
+            width:50%;
         }
         input[type="time"]{
-            width:20vw;
-        }*/
-        input[type=text] {
+            width:20%;
+        }
+        input[type=text] ,input[type="time"]{
             font-size: 16px;
         }
         #ui-datepicker-div{
             opacity: 1 !important;
+        }
+        .mainbody{
+            width:min(95vw,500px);
         }
     </style>
     <script src="https://rawgit.com/jquery/jquery-ui/master/ui/i18n/datepicker-ja.js"></script>
 </head>
 
 <body>
+    <div class="mainbody">
     <div>
         <input id="date-1" type="text" placeholder="日付選択" class="datepic">
-        <input type="time" id="time-1">
+        <input type="time" id="time-from-1" value="00:00">～<input type="time" id="time-to-1" value="00:00">
     </div>
     <div>
         <input id="date-2" type="text" placeholder="日付選択" class="datepic">
-        <input type="time" id="time-2" value="00:00">
+        <input type="time" id="time-from-2" value="00:00">～<input type="time" id="time-to-2" value="00:00">
+    </div>
     </div>
     <script>
         $('#mdp-demo').multiDatesPicker({
